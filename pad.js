@@ -1,7 +1,3 @@
-const array = {
-    0 : 'apple',
-    1 : 'Num2'
+for (var i = 1; i <= 2; i++) {
+  console.log("Heyyyy");
 }
-
-
-

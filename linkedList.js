@@ -86,4 +86,41 @@ class LinkedList {
     oneIndexAhead.next = holdingPointer;
     return this;
   }
+  reverse() {
+    if (this.length == 1) {
+      return this.head;
+    }
+    let first = this.head;
+    let second = this.head.next;
+    for (var i = 1; i < this.length; i++) {
+      let holding = second.next;
+      second.next = first;
+      first = second;
+      second = holding;
+    }
+    // console.log(this.head);
+    this.head.next = null;
+    this.tail = this.head;
+    this.head = first;
+    return this;
+  }
 }
+
+const myLinkedList = new LinkedList(10);
+myLinkedList.append(20);
+myLinkedList.append(30);
+console.log(myLinkedList.reverse());
+myLinkedList.printList();
+
+// 10, 20, 30
+
+// first = 10, 20, 30
+// second = 20, 30
+
+// 1:
+// first 20, 10, 20, 30
+// second: 30
+
+// 2:
+// first: 30, 20, 10, 20, 30
+// second: null
